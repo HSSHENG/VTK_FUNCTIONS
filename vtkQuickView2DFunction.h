@@ -15,30 +15,31 @@
 #include <vtkOrientationMarkerWidget.h>
 #include <vtkCamera.h>
 #include <vtkTextRenderer.h>
+#include <vtkPolyDataMapper.h>
+#include <vtkLineSource.h>
+#include <vtkPolyLine.h>
+#include <vtkPoints.h>
+#include <vtkProperty.h>
+#include <vtkDoubleArray.h>
+#include <vtkPointData.h>
+#include <vtkImageData.h>
+//VTK_MODULE_INIT(vtkRenderingFreeType);
+//VTK_MODULE_INIT(vtkRenderingOpenGL2);
+//VTK_MODULE_INIT(vtkInteractionStyle);
 
-#include <itkImage.h>
-#include <itkImageToVTKImageFilter.h>
-
-namespace itk
+namespace vtk
 {
     //.................................................................................................
-    // A VTK-ITK FUNCTION FOR 2D ITK IMAGE DATA QUICK VIEW unsigned char
+    // A VTK FUNCTION FOR 2D VTK IMAGE DATA QUICK VIEW
     //.................................................................................................
     void QuickView2DFunction(
-            itk::Image<unsigned char,2>::Pointer image);
+            vtkSmartPointer<vtkImageData> imageData);
 
     //.................................................................................................
-    // A VTK-ITK FUNCTION FOR 2D ITK IMAGE DATA QUICK VIEW short
+    // A VTK FUNCTION FOR VTK POLY DATA QUICK VIEW
     //.................................................................................................
     void QuickView2DFunction(
-            itk::Image<short,2>::Pointer image);
-
-    //.................................................................................................
-    // A VTK-ITK FUNCTION FOR 2D ITK IMAGE DATA QUICK VIEW float
-    //.................................................................................................
-    void QuickView2DFunction(
-            itk::Image<float,2>::Pointer image);
-
+            vtkSmartPointer<vtkPolyData> poly);
 }
 
 #endif // ITKQUICKVIEW2DFUNCTION_H

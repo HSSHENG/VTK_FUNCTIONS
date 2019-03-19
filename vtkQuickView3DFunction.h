@@ -1,5 +1,5 @@
-#ifndef ITKQUICKVIEW3DFUNCTION_H
-#define ITKQUICKVIEW3DFUNCTION_H
+#ifndef VTKQUICKVIEW3DFUNCTION_H
+#define VTKQUICKVIEW3DFUNCTION_H
 
 #include <itkImage.h>
 #include <itkImageToVTKImageFilter.h>
@@ -27,30 +27,30 @@
 #include <vtkOrientationMarkerWidget.h>
 #include <vtkCamera.h>
 #include <vtkAutoInit.h>
+#include <vtkMarchingCubes.h>
+#include <vtkPolyDataMapper.h>
+#include <vtkLODActor.h>
+#include <vtkProperty.h>
+#include <vtkPolyDataNormals.h>
 VTK_MODULE_INIT(vtkRenderingFreeType);
 VTK_MODULE_INIT(vtkRenderingOpenGL2);
 VTK_MODULE_INIT(vtkInteractionStyle);
 
-namespace itk
+namespace vtk
 {
     //.................................................................................................
-    // A VTK-ITK FUNCTION FOR 3D ITK IMAGE DATA QUICK VIEW unsigned char
+    // A VTK FUNCTION FOR 3D VTK IMAGE DATA QUICK VIEW
     //.................................................................................................
-    void QuickView3DFunction(
-            itk::Image<unsigned char,3>::Pointer image);
+    void QuickView3DVolumeRenderingFunction(
+            vtkSmartPointer<vtkImageData> imageData);
 
     //.................................................................................................
-    // A VTK-ITK FUNCTION FOR 3D ITK IMAGE DATA QUICK VIEW signed short
+    // A VTK FUNCTION FOR 3D VTK IMAGE DATA QUICK VIEW surface rendering
     //.................................................................................................
-    void QuickView3DFunction(
-            itk::Image<signed short,3>::Pointer image);
-
-    //.................................................................................................
-    // A VTK-ITK FUNCTION FOR 3D ITK IMAGE DATA QUICK VIEW float
-    //.................................................................................................
-    void QuickView3DFunction(
-            itk::Image<float,3>::Pointer image);
+    void QuickView3DSurfaceRenderingFunction(
+            vtkSmartPointer<vtkImageData> imageData,
+            float isoValue);
 
 }
 
-#endif // ITKQUICKVIEW3DFUNCTION_H
+#endif // VTKQUICKVIEW3DFUNCTION_H
